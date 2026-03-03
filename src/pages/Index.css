@@ -1,0 +1,15 @@
+.page {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.footer {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer p {
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+}

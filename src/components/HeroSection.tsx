@@ -1,30 +1,57 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Linkedin, Mail, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import "./HeroSection.css";
+
+const roles = ["Full-Stack Developer", "Django Expert", "React Developer", "Python Enthusiast"];
 
 const HeroSection = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!deleting && text.length < currentRole.length) {
+      timeout = setTimeout(() => setText(currentRole.slice(0, text.length + 1)), 80);
+    } else if (!deleting && text.length === currentRole.length) {
+      timeout = setTimeout(() => setDeleting(true), 2000);
+    } else if (deleting && text.length > 0) {
+      timeout = setTimeout(() => setText(text.slice(0, -1)), 40);
+    } else if (deleting && text.length === 0) {
+      setDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [text, deleting, roleIndex]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+    <section className="hero">
+      <div className="hero-bg">
+        <img src={heroBg} alt="" className="hero-bg-img" />
+        <div className="hero-overlay" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 text-center">
+      <div className="hero-content container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="font-heading text-primary text-sm tracking-[0.3em] uppercase mb-4">
-            {"// Full-Stack Developer"}
+          <p className="hero-label">
+            {"// "}
+            <span>{text}</span>
+            <span className="cursor" />
           </p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-6">
-            <span className="text-foreground">Dhalish</span>{" "}
+          <h1 className="hero-title">
+            <span>Dhalish</span>{" "}
             <span className="text-gradient">Raj</span>
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 font-body leading-relaxed">
+          <p className="hero-desc">
             Building scalable, user-focused web applications with modern technologies.
             Based in Ernakulam, Kerala.
           </p>
@@ -34,27 +61,17 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="flex items-center justify-center gap-4 mb-16"
+          className="hero-actions"
         >
-          <a
-            href="https://www.linkedin.com/in/dhalishraj"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-lg border border-border bg-card/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 hover:glow"
-          >
+          <a href="https://www.linkedin.com/in/dhalishraj" target="_blank" rel="noopener noreferrer" className="icon-btn">
             <Linkedin size={20} />
           </a>
-          <a
-            href="mailto:dhalishraj8@gmail.com"
-            className="p-3 rounded-lg border border-border bg-card/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 hover:glow"
-          >
+          <a href="mailto:dhalishraj8@gmail.com" className="icon-btn">
             <Mail size={20} />
           </a>
-          <a
-            href="#projects"
-            className="ml-4 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-heading text-sm font-semibold hover:opacity-90 transition-all duration-300 glow"
-          >
-            View Projects
+          <a href="#projects" className="btn btn-primary">View Projects</a>
+          <a href="/DHALISH_full_stack_developer.pdf" download className="btn btn-outline">
+            <Download size={16} /> Resume
           </a>
         </motion.div>
 
@@ -62,9 +79,9 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="animate-bounce"
+          className="hero-scroll"
         >
-          <ArrowDown className="mx-auto text-muted-foreground" size={20} />
+          <ArrowDown size={20} />
         </motion.div>
       </div>
     </section>

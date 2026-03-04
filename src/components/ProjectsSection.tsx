@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Database, Brain, Wallet, MessageCircle, ExternalLink } from "lucide-react";
+import { Database, Wallet, MessageCircle, ExternalLink } from "lucide-react";
 import "./ProjectsSection.css";
 
 const projects = [

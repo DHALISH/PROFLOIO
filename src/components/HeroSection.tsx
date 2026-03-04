@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Linkedin, Mail, Download, Github, Sparkles } from "lucide-react";
+import { ArrowDown, Linkedin, Mail, Download, Github } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import "./HeroSection.css";
 

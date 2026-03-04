@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Database, Brain, Wallet, MessageCircle } from "lucide-react";
+import { Database, Brain, Wallet, MessageCircle, ExternalLink } from "lucide-react";
 import "./ProjectsSection.css";
 
 const projects = [
@@ -29,39 +29,56 @@ const projects = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, rotateX: 5 },
+  visible: (i: number) => ({
+    opacity: 1, y: 0, rotateX: 0,
+    transition: { delay: i * 0.15, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+  }),
+};
+
 const ProjectsSection = () => (
   <section id="projects" className="section">
     <div className="container">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
       >
         <p className="section-label">{"// Projects"}</p>
-        <h2 className="section-title">Featured Work</h2>
+        <h2 className="section-title">
+          Featured <span className="text-gradient">Work</span>
+        </h2>
       </motion.div>
 
       <div className="grid-2">
         {projects.map((project, i) => (
           <motion.div
             key={project.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.5 }}
+            custom={i}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={cardVariants}
+            whileHover={{ y: -6 }}
             className="glass card project-card"
           >
-            <div className="project-icon-wrap">
-              <project.icon size={20} />
+            <div className="project-card-inner">
+              <div className="project-icon-wrap">
+                <project.icon size={20} />
+              </div>
+              <div className="project-card-header">
+                <h3 className="project-title">{project.title}</h3>
+              </div>
+              <p className="project-desc">{project.description}</p>
+              <div className="project-tags">
+                {project.tech.map((t) => (
+                  <span key={t} className="tag tag-primary">{t}</span>
+                ))}
+              </div>
             </div>
-            <h3 className="project-title">{project.title}</h3>
-            <p className="project-desc">{project.description}</p>
-            <div className="project-tags">
-              {project.tech.map((t) => (
-                <span key={t} className="tag tag-primary">{t}</span>
-              ))}
-            </div>
+            <div className="project-card-glow" />
           </motion.div>
         ))}
       </div>

@@ -10,12 +10,6 @@ const projects = [
     description: "Full-stack platform for managing blood donors and distribution with secure authentication, real-time inventory tracking, and an admin dashboard.",
   },
   {
-    icon: Brain,
-    title: "Alzheimer's Detection System",
-    tech: ["ML", "PHP", "JavaScript"],
-    description: "Early detection system using machine learning & cognitive data with prediction visualization, data preprocessing, and model evaluation techniques.",
-  },
-  {
     icon: Wallet,
     title: "Personal Finance Tracker",
     tech: ["Django REST", "React", "MySQL"],

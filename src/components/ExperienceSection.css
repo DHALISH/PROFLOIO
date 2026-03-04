@@ -1,3 +1,49 @@
+.exp-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-left: 2rem;
+}
+
+.exp-timeline-track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.exp-timeline-progress {
+  width: 100%;
+  background: linear-gradient(to bottom, var(--primary), #6ee7b7);
+  border-radius: 2px;
+}
+
+.exp-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.exp-card:hover {
+  box-shadow: 0 10px 40px rgba(46, 204, 113, 0.1);
+  border-color: rgba(46, 204, 113, 0.3);
+}
+
+.exp-dot {
+  position: absolute;
+  left: -2.35rem;
+  top: 1.5rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 12px rgba(46, 204, 113, 0.4);
+}
+
 .exp-header {
   display: flex;
   align-items: center;
@@ -11,6 +57,12 @@
   border-radius: 8px;
   background: rgba(46, 204, 113, 0.1);
   color: var(--primary);
+  transition: all 0.3s;
+}
+
+.exp-card:hover .exp-icon {
+  background: rgba(46, 204, 113, 0.2);
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.15);
 }
 
 .exp-heading {

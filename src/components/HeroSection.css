@@ -14,7 +14,7 @@
 
 .hero-bg-img {
   width: 100%;
-  height: 100%;
+  height: 120%;
   object-fit: cover;
   opacity: 0.4;
 }
@@ -30,10 +30,39 @@
   );
 }
 
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 8px rgba(46, 204, 113, 0.4);
+}
+
 .hero-content {
   position: relative;
   z-index: 10;
   text-align: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.25);
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
 }
 
 .hero-label {
@@ -82,5 +111,54 @@
   color: var(--fg-muted);
   display: flex;
   justify-content: center;
-  animation: bounce 2s infinite;
+}
+
+/* Animated icon button */
+.icon-btn-animated {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.icon-btn-animated:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow-strong);
+}
+
+/* Glowing primary button */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, var(--primary), #6ee7b7, var(--primary));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+  filter: blur(8px);
+}
+.btn-glow:hover::after {
+  opacity: 0.5;
+}
+
+/* Shimmer outline button */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(46, 204, 113, 0.15), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }

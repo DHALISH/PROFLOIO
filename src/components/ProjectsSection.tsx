@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Database, Brain, Wallet, MessageCircle, ExternalLink } from "lucide-react";
+import { Database, Wallet, MessageCircle, ExternalLink } from "lucide-react";
 import "./ProjectsSection.css";
 
 const projects = [
@@ -8,12 +8,6 @@ const projects = [
     title: "BMS – Blood Management System",
     tech: ["Django", "MySQL", "Auth"],
     description: "Full-stack platform for managing blood donors and distribution with secure authentication, real-time inventory tracking, and an admin dashboard.",
-  },
-  {
-    icon: Brain,
-    title: "Alzheimer's Detection System",
-    tech: ["ML", "PHP", "JavaScript"],
-    description: "Early detection system using machine learning & cognitive data with prediction visualization, data preprocessing, and model evaluation techniques.",
   },
   {
     icon: Wallet,

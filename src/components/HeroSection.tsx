@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Linkedin, Mail, Download, Github, Sparkles } from "lucide-react";
+import { ArrowDown, Linkedin, Mail, Download, Github } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import "./HeroSection.css";
 
@@ -73,16 +73,6 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <motion.div
-            className="hero-badge"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
-            <Sparkles size={14} />
-            <span>Available for hire</span>
-          </motion.div>
-
           <p className="hero-label">
             {"// "}
             <span>{text}</span>

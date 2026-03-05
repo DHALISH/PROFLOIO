@@ -16,12 +16,14 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] as const } },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const } },
 };
 
 const ContactSection = () => (
-  <section id="contact" className="section">
-    <div className="container contact-container">
+  <section id="contact" className="section contact-section">
+    <div className="ambient-orb ambient-orb-accent" style={{ width: 250, height: 250, bottom: '10%', right: '10%' }} />
+
+    <div className="container contact-container" style={{ position: 'relative', zIndex: 1 }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +54,7 @@ const ContactSection = () => (
             rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
             className="glass card contact-card"
             variants={cardVariants}
-            whileHover={{ y: -4, boxShadow: "0 10px 40px rgba(46, 204, 113, 0.12)" }}
+            whileHover={{ y: -4 }}
           >
             <div className="contact-icon">
               <link.icon size={18} />

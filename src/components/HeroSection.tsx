@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Linkedin, Mail, Download, Github } from "lucide-react";
+import { ArrowDown, Linkedin, Mail, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import "./HeroSection.css";
 
@@ -12,10 +12,10 @@ const FloatingParticle = ({ delay, x, y, size }: { delay: number; x: string; y: 
     style={{ left: x, top: y, width: size, height: size }}
     animate={{
       y: [0, -30, 0],
-      opacity: [0.2, 0.6, 0.2],
-      scale: [1, 1.3, 1],
+      opacity: [0.15, 0.5, 0.15],
+      scale: [1, 1.4, 1],
     }}
-    transition={{ duration: 4, delay, repeat: Infinity, ease: "easeInOut" }}
+    transition={{ duration: 5, delay, repeat: Infinity, ease: "easeInOut" }}
   />
 );
 
@@ -55,16 +55,26 @@ const HeroSection = () => {
         <div className="hero-overlay" />
       </motion.div>
 
+      {/* Grid pattern */}
+      <div className="hero-grid" />
+
+      {/* Animated mesh gradient */}
+      <div className="hero-mesh">
+        <div className="hero-mesh-orb" />
+        <div className="hero-mesh-orb" />
+        <div className="hero-mesh-orb" />
+      </div>
+
       {/* Floating particles */}
       <div className="hero-particles">
-        <FloatingParticle delay={0} x="10%" y="20%" size={4} />
-        <FloatingParticle delay={0.5} x="80%" y="30%" size={3} />
-        <FloatingParticle delay={1} x="25%" y="60%" size={5} />
-        <FloatingParticle delay={1.5} x="70%" y="70%" size={3} />
-        <FloatingParticle delay={2} x="50%" y="40%" size={4} />
-        <FloatingParticle delay={0.8} x="90%" y="50%" size={3} />
-        <FloatingParticle delay={1.2} x="15%" y="80%" size={4} />
-        <FloatingParticle delay={2.5} x="60%" y="15%" size={5} />
+        <FloatingParticle delay={0} x="10%" y="20%" size={3} />
+        <FloatingParticle delay={0.5} x="80%" y="30%" size={2} />
+        <FloatingParticle delay={1} x="25%" y="60%" size={4} />
+        <FloatingParticle delay={1.5} x="70%" y="70%" size={2} />
+        <FloatingParticle delay={2} x="50%" y="40%" size={3} />
+        <FloatingParticle delay={0.8} x="90%" y="50%" size={2} />
+        <FloatingParticle delay={1.2} x="15%" y="80%" size={3} />
+        <FloatingParticle delay={2.5} x="60%" y="15%" size={4} />
       </div>
 
       <motion.div className="hero-content container" style={{ y: contentY, opacity }}>

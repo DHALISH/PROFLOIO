@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Database, Wallet, MessageCircle, ExternalLink } from "lucide-react";
+import { Database, Wallet, MessageCircle } from "lucide-react";
 import "./ProjectsSection.css";
 
 const projects = [
@@ -24,16 +24,19 @@ const projects = [
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 50, rotateX: 5 },
+  hidden: { opacity: 0, y: 60, rotateX: 8 },
   visible: (i: number) => ({
     opacity: 1, y: 0, rotateX: 0,
-    transition: { delay: i * 0.15, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const },
+    transition: { delay: i * 0.15, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const },
   }),
 };
 
 const ProjectsSection = () => (
-  <section id="projects" className="section">
-    <div className="container">
+  <section id="projects" className="section projects-section">
+    <div className="ambient-orb ambient-orb-accent" style={{ width: 350, height: 350, top: '10%', left: '-8%' }} />
+    <div className="grid-pattern" />
+
+    <div className="container" style={{ position: 'relative', zIndex: 1 }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -55,9 +58,9 @@ const ProjectsSection = () => (
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={cardVariants}
-            whileHover={{ y: -6 }}
             className="glass card project-card"
           >
+            <span className="project-number">0{i + 1}</span>
             <div className="project-card-inner">
               <div className="project-icon-wrap">
                 <project.icon size={20} />

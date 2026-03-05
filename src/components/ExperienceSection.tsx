@@ -9,8 +9,10 @@ const ExperienceSection = () => {
   const lineHeight = useTransform(scrollYProgress, [0.1, 0.8], ["0%", "100%"]);
 
   return (
-    <section id="experience" className="section" ref={ref}>
-      <div className="container">
+    <section id="experience" className="section experience-section" ref={ref}>
+      <div className="ambient-orb ambient-orb-primary" style={{ width: 300, height: 300, top: '30%', right: '-5%' }} />
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,7 +35,6 @@ const ExperienceSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7 }}
-            whileHover={{ x: 4 }}
             className="glass card exp-card"
           >
             <div className="exp-dot" />
@@ -55,7 +56,6 @@ const ExperienceSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            whileHover={{ x: 4 }}
             className="glass card exp-card"
           >
             <div className="exp-dot" />

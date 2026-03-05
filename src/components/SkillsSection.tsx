@@ -10,24 +10,27 @@ const skillCategories = [
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  hidden: { opacity: 0, y: 50, scale: 0.9 },
   visible: (i: number) => ({
     opacity: 1, y: 0, scale: 1,
-    transition: { delay: i * 0.15, duration: 0.6, ease: [0.4, 0, 0.2, 1] as const },
+    transition: { delay: i * 0.12, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const },
   }),
 };
 
 const tagVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
+  hidden: { opacity: 0, scale: 0.7, y: 10 },
   visible: (i: number) => ({
-    opacity: 1, scale: 1,
-    transition: { delay: i * 0.05, duration: 0.3 },
+    opacity: 1, scale: 1, y: 0,
+    transition: { delay: i * 0.06, duration: 0.4, ease: [0.4, 0, 0.2, 1] as const },
   }),
 };
 
 const SkillsSection = () => (
-  <section id="skills" className="section">
-    <div className="container">
+  <section id="skills" className="section skills-section">
+    <div className="ambient-orb ambient-orb-primary" style={{ width: 400, height: 400, top: '20%', right: '-10%' }} />
+    <div className="ambient-orb ambient-orb-accent" style={{ width: 300, height: 300, bottom: '10%', left: '-5%' }} />
+    
+    <div className="container" style={{ position: 'relative', zIndex: 1 }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +52,7 @@ const SkillsSection = () => (
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={cardVariants}
-            whileHover={{ y: -8, boxShadow: "0 0 40px rgba(46, 204, 113, 0.15)" }}
+            whileHover={{ y: -10 }}
             className="glass card skill-card"
           >
             <div className="skill-icon-wrap">
@@ -65,7 +68,6 @@ const SkillsSection = () => (
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={tagVariants}
-                  whileHover={{ scale: 1.1, backgroundColor: "rgba(46, 204, 113, 0.15)" }}
                   className="tag tag-secondary"
                 >
                   {s}

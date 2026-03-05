@@ -1,9 +1,14 @@
+.experience-section {
+  position: relative;
+  overflow: hidden;
+}
+
 .exp-timeline {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding-left: 2rem;
+  padding-left: 2.5rem;
 }
 
 .exp-timeline-track {
@@ -19,29 +24,39 @@
 
 .exp-timeline-progress {
   width: 100%;
-  background: linear-gradient(to bottom, var(--primary), #6ee7b7);
+  background: var(--gradient-primary);
   border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 212, 170, 0.3);
 }
 
 .exp-card {
   position: relative;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .exp-card:hover {
-  box-shadow: 0 10px 40px rgba(46, 204, 113, 0.1);
-  border-color: rgba(46, 204, 113, 0.3);
+  box-shadow: 
+    0 10px 40px rgba(0, 212, 170, 0.08),
+    0 0 0 1px rgba(0, 212, 170, 0.15);
+  transform: translateX(4px);
 }
 
 .exp-dot {
   position: absolute;
-  left: -2.35rem;
+  left: -2.85rem;
   top: 1.5rem;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 15px rgba(0, 212, 170, 0.3);
+  transition: all 0.3s;
+}
+
+.exp-card:hover .exp-dot {
   background: var(--primary);
-  box-shadow: 0 0 12px rgba(46, 204, 113, 0.4);
+  box-shadow: 0 0 25px rgba(0, 212, 170, 0.5);
 }
 
 .exp-header {
@@ -54,15 +69,16 @@
 .exp-icon {
   display: inline-flex;
   padding: 0.6rem;
-  border-radius: 8px;
-  background: rgba(46, 204, 113, 0.1);
+  border-radius: 10px;
+  background: rgba(0, 212, 170, 0.08);
   color: var(--primary);
-  transition: all 0.3s;
+  transition: all 0.4s;
 }
 
 .exp-card:hover .exp-icon {
-  background: rgba(46, 204, 113, 0.2);
-  box-shadow: 0 0 15px rgba(46, 204, 113, 0.15);
+  background: rgba(0, 212, 170, 0.15);
+  box-shadow: 0 0 20px rgba(0, 212, 170, 0.12);
+  transform: rotate(-5deg);
 }
 
 .exp-heading {
@@ -80,9 +96,10 @@
 
 .exp-meta {
   color: var(--primary);
-  font-size: 0.75rem;
-  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
   margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
 }
 
 .exp-list {

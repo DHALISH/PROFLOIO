@@ -43,7 +43,7 @@ const ExperienceSection = () => {
               <h3 className="exp-heading">Internship</h3>
             </div>
             <h4 className="exp-role">Python Full-Stack Developer Intern</h4>
-            <p className="exp-meta">OneTeam Kochi · Jun 2025 – Nov 2025</p>
+            <p className="exp-meta">OneTeam Kochi · Jun 2025 – DEC 2025</p>
             <ul className="exp-list">
               <li><span className="exp-bullet">▸</span> Implemented new features and improved UI/UX across Django modules</li>
               <li><span className="exp-bullet">▸</span> Contributed to database structuring and API integration</li>

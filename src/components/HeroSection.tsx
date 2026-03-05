@@ -114,7 +114,7 @@ const HeroSection = () => {
             <Mail size={20} />
           </a>
           <a href="#projects" className="btn btn-primary btn-glow">View Projects</a>
-          <a href="/DHALISH_full_stack_developer.pdf.docx" download className="btn btn-outline btn-shimmer">
+          <a href="/DHALISH_full_stack_developer.pdf" download className="btn btn-outline btn-shimmer">
             <Download size={16} /> Resume
           </a>
         </motion.div>

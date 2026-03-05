@@ -28,7 +28,7 @@ const Navbar = () => {
     >
       <div className="navbar-inner container">
         <a href="#" className="navbar-logo">
-          DR<span className="navbar-logo-dot">.</span>
+          D<span className="navbar-logo-dot">.</span>
         </a>
 
         <div className="navbar-links">

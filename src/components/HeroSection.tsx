@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Linkedin, Mail, Download } from "lucide-react";
+import { ArrowDown, Linkedin, Mail, Download, Github } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import "./HeroSection.css";
 
@@ -122,6 +122,9 @@ const HeroSection = () => {
           </a>
           <a href="mailto:dhalishraj8@gmail.com" className="icon-btn icon-btn-animated">
             <Mail size={20} />
+          </a>
+          <a href="https://github.com/DHALISH" target="_blank" rel="noopener noreferrer" className="icon-btn icon-btn-animated">
+            <Github size={20} />
           </a>
           <a href="#projects" className="btn btn-primary btn-glow">View Projects</a>
           <a href="/DHALISH_full_stack_developer.pdf" download className="btn btn-outline btn-shimmer">

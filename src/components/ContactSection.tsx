@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import "./ContactSection.css";
 
 const contactLinks = [
@@ -7,6 +7,7 @@ const contactLinks = [
   { icon: Phone, label: "+91 7994913681", href: "tel:+917994913681" },
   { icon: MapPin, label: "Ernakulam, Kerala", href: "#" },
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/dhalishraj" },
+  { icon: Github, label: "GitHub", href: "https://github.com/DHALISH" },
 ];
 
 const containerVariants = {

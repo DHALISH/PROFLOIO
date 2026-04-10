@@ -106,8 +106,9 @@ const HeroSection = () => {
             </motion.span>
           </h1>
           <p className="hero-desc">
-            Building scalable, user-focused web applications with modern technologies.
-            Based in Ernakulam, Kerala.
+            Full-Stack Developer skilled in Django, React, and modern web technologies. 
+            I build scalable, user-friendly applications and 
+            love turning ideas into real-world solutions.
           </p>
         </motion.div>
 
